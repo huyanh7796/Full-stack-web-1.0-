@@ -110,6 +110,7 @@ th, td, tr {
     text-align: center;
 }
 
-.noti-box {
+.update-noti, .create-noti{
+    border: none;
     color: red;
 }

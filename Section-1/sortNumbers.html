@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [];
+        for(let i = 0; i < 10; i++) {
+            do{
+                arr[i] = parseInt(prompt(`Number ${i}: `));
+            }while(isNaN(arr[i]));
+        }
+        console.log(...arr);
+        let n = 10;
+        while (n > 1)
+        {
+            for (let i = 0; i < n - 1; i++)
+            {
+                if (arr[i] > arr[i + 1])
+                {
+                    let temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                }
+            }
+            n = n - 1;
+        }
+        console.log(...arr);
+    </script>
+</body>
+</html>

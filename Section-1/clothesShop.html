@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let CRUD = 'CRUD';
+        let guestDemand;
+        let ourItems = ['T-shirt', 'Sweater'];
+        let exit = function() {
+            let askExit = prompt('Do you want to continue (Y/N)?');
+            if(askExit.toLowerCase() === 'y') {
+                welcome();
+            }else{
+                return;
+            }
+        }
+        let welcome = function() {
+            do{
+                guestDemand = prompt(`Welcome to our shop, what do you want (C, R, U, D)? `);
+            }while(!CRUD.includes(guestDemand));
+            if(guestDemand === 'C') {
+                let newItem = prompt('Enter new item: ');
+                if(ourItems.includes(newItem)) {
+                    console.log('This item seems to be in our items already!');
+                }else{
+                    ourItems.push(newItem);
+                }
+            
+            }else if(guestDemand === 'U') {
+                let position;
+                do{
+                    position = parseInt(prompt('Update position? '), 10);
+                }while(isNaN(position));
+                let updateItem = prompt('New item?');
+                if(ourItems.includes(updateItem)) {
+                    console.log('This item seems to be in our items already!');
+                }else{
+                    ourItems.splice(position - 1, 0, updateItem);
+                }
+            }else if(guestDemand === 'D'){
+                let position;
+                do{
+                    position = parseInt(prompt('Delete position? '), 10);
+                }while(isNaN(position));
+                ourItems.splice(position - 1, 1);
+            }
+            console.log(`Our items: ${ourItems.join(', ')}`);
+            exit();
+        }
+        welcome();
+        
+        
+
+    </script>
+</body>
+</html>

@@ -108,25 +108,29 @@ function main() {
         let fname = $(".create-fname").val();
         let pnum = $(".create-pnum").val();
         let cname = $(".create-cname").val();
-        if ($(".noti-box").html() !== "") {
-            $(".noti-box").html("");
+        if ($(".create-noti").html() !== "") {
+            $(".create-noti").html("");
         }
         if(!(id) || !(fname) || !(pnum) || !(cname)) {
-            $(".noti-box").append("Please fill all the blanks!");
+            $(".create-noti").append("Please fill all the blanks!");
         } else if(searchById(id) !== -1) {
-            $(".noti-box").append("Existing ID!");
+            $(".create-noti").append("Existing ID!");
         } else {
         create(id, fname, pnum, cname);
-        $(".noti-box").append("Create student success!")
+        $(".create-noti").append("Create student success!")
         printStudents(students);
         clearInputs();
         }})
     //Update
     $("#update-button").on("click", function() {
+        if ($(".update-noti").html() !== "") {
+            $(".update-noti").html("");
+        }
         let fname = $(".update-fname").val();
         let pnum = $(".update-pnum").val();
         let cname = $(".update-cname").val();
         update(selectedStudent.id,fname,pnum,cname);
+        $(".update-noti").append("Update success!");
         printStudents(students);
         clearInputs();
     })

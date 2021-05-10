@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let students = [
+            {
+                id: 1,
+                fullName: "Nguyen Batman",
+                phoneNum: 090090090,
+                className: "Justice League"
+            },
+            {
+                id: 2,
+                fullName: "Thor",
+                phoneNum: 012345677,
+                className: "Marvelstudio"
+            },
+            {
+                id: 3,
+                fullName: "Onizuka",
+                phoneNum: 035353535,
+                className: "GTO"
+            },
+            {
+                id: 4,
+                fullName: "Uzumaki Naruto",
+                phoneNum: 948573939,
+                className: "Leaf Village"
+            },
+            {
+                id: 5,
+                fullName: "Heluu MotherFucker",
+                phoneNum: 90923857,
+                className: "Dum dum omg red bars"
+            }
+        ];
+
+        let create = function() {
+            let inputid = prompt('Nhap MSSV: ');
+            
+        }
+
+        
+        let promptStudentID = function() {
+            do{
+                inputid = parseInt(prompt('Nhap MSSV: '),10);
+            }while(isNaN(inputid));
+        }
+        let checkID = function(input) {
+            for(let i = 0; i < students.length; i++) {
+                if(students[i].id === input) {
+                    return i;
+                }
+            }
+            return false;
+        }   
+        let exit = function() {
+            askExit = prompt('Do you want to continure? Y/N');
+            if(askExit.toLowerCase() === 'y') {
+                main();
+            }
+            return;
+        }
+        let seeList = function() {
+            askSeeList = prompt('Do you want to see the full list now?');
+            if(askSeeList.toLowerCase() === 'y') {
+                console.log(...students);
+                return;
+            }
+            return;
+        }
+        let main = function() {
+            let RUD = 'rud';
+            do{
+                var choice = prompt('Welcome to Students Management System! What do you want? (R,U,D)');
+                switch(choice.toLowerCase()) {
+                    case "r":
+                        promptStudentID();
+                        if(!checkID(inputid)) {
+                            console.log("No data");
+                            break;
+                        }
+                        console.log(students[inputid - 1]);
+                        break;
+                    case "u": 
+                        promptStudentID();
+                        if(!checkID(inputid)) {
+                            console.log("No data");
+                            break;
+                        }
+                        let newupdate;
+                        let FPC = 'fpc';
+                        do{
+                            newupdate = prompt("Update? f: fullName, p: phoneNum, c: className");
+                        }while(!FPC.includes(newupdate.toLowerCase()));
+                        switch(newupdate.toLowerCase()) {
+                            case "f":
+                                students[inputid - 1].fullName = prompt("Full name update: ");
+                                break;
+                            case "p":
+                                do{
+                                    students[inputid - 1].phoneNum = parseInt(prompt("Phone number update: "),10);
+                                }while(isNaN(students[inputid - 1].phoneNum));
+                                break;
+                            case "c":
+                                students[inputid - 1].className = prompt("Class name update: ");
+                                break;
+                        seeList();
+                        }
+                        break;
+                    case "d": 
+                        promptStudentID();
+                            if(!checkID(inputid)) {
+                                console.log("No data");
+                                break;
+                            }
+                        let confirm = prompt("Do you want to delete this student? Y/N")
+                        if(confirm.toLowerCase() === 'y') {
+                            students.splice(inputid - 1, 1);
+                            alert('This student has been deleted!');
+                        }
+                        seeList();
+                        break;
+                }
+            }while(!RUD.includes(choice.toLowerCase()));
+            exit();
+        }
+        main();
+    </script>
+</body>
+</html>
