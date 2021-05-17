@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-fluid" style="background-color: #eff1f0">
+          <a  class="navbar-brand" href="bakery.html"><img src="image/BreadBakery.jpeg" alt="bakerylogo" style="width:150px;height:100%;"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="menu.html" id="navbarDropdown" >Menu</a>
+                    <div class="dropdown-content">
+                        <a class="dropdown-item" href="cake.html">Cake</a>
+                        <a class="dropdown-item" href="bread.html">Bread & Pastry</a>
+                        <a class="dropdown-item" href="beverages.html">Beverages</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ourStory.html">Our story</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="new-event.html">News & events</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="image/106555013-vintage-bakery-menu-design-restaurant-menu.jpeg" class="d-block w-100" alt="bakery-menu" style="height:700px;">
+            </div>
+            <div class="carousel-item">
+                <img src="image/shutterstock-bakery-scaled.jpeg" class="d-block w-100" alt="bakery-shop1" style="height:700px;">
+            </div>
+            <div class="carousel-item">
+                <img src="image/intro-1601499029.jpeg" class="d-block w-100" alt="bakery-shop2" style="height:700px;">
+            </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="title row mt-5 mb-4">
+            Featured Products
+        </div>
+        <div class="row">
+            <div class="feature col-xs-12 col-sm-6 col-md-4">
+                <img src="image/Feature_18-1.jpeg" alt="bananacake" style="width:100%">
+                <div>
+                    <div class="featurename">
+                        Banana Cake
+                    </div>
+                    <div class="description">
+                        Sponge cake covered in banana buttercream with hazelnut cocoa spread inside
+                    </div>
+                </div>
+            </div>
+            <div class="feature col-xs-12 col-sm-6 col-md-4">
+                <img src="image/TOUS-les-JOURS-Egg-Tart.jpeg" alt="eggtart" style="width:100%">
+                <div>
+                    <div class="featurename">
+                        Egg Tart
+                    </div>
+                    <div class="description">
+                        Crispy pasty tart filled with egg custard cream
+                    </div>
+                </div>
+            </div>
+            <div class="feature col-xs-12 col-sm-6 col-md-4">
+                <img src="image/Choo-Choo-Train-Cake.jpeg" alt="choochoo" style="width:100%">
+                <div>
+                    <div class="featurename">
+                        Choo Choo Train
+                    </div>
+                    <div class="description">
+                            Kids' favorite birthday cake with train toys on top
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container mt-5 mb-5">
+        <div class="container" style="background-color: #eff1f0; padding:5px">
+            <div class="row">
+                <div class="nav-box col-xs-12 col-sm-4">
+                    <a class="nav-link" style="font-weight: bold; color: black">Menu</a>
+                    <div>
+                        <a class="nav-link" href="cake.html">Cake</a>
+                        <a class="nav-link" href="bread.html">Bread & Panstry</a>
+                        <a class="nav-link" href="beverages.html">Beverages</a>
+                    </div>
+                </div>
+                <div class="col-xs-0 col-sm-4"></div>
+                <div class="contact-box col-xs-12 col-sm-4">
+                    <span class="material-icons">home</span> <span>Address: No.1 Nguyen Trai, Thanh Xuan, Ha Noi</span><br>
+                    <span class="material-icons">call</span> <span>Tel: +84 0506070809</span><br>
+                    <span class="material-icons">email</span> <span>Mail: bakery@gmail.com</span>
+                </div>
+            </div>
+        </div>
+        <div class="conatainer mt-5 mb-5" style="text-align:center">
+            Copy Right 2021. All Rights Reserved By SomeOne
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+</html>

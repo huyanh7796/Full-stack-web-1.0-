@@ -1,0 +1,70 @@
+
+
+
+.nav-item {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.nav-item a{
+    color: black;
+}
+
+.nav-item a:hover {
+    color: gray;
+}
+
+#aboutme {
+    font-family: 'Newsreader', serif;
+    color: white;
+    background-image: url(./image/chaoticbg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    opacity: 0.9;
+}
+
+content {
+    font-family: 'Newsreader', serif;
+    background-image: url('./image/top-view-work-from-home-concept-with-keyboard-calculator-notebook-white-background-graphic-designer-creative-designer-concept_160097-213.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    opacity: 0.9;
+}
+
+#aboutme h1 {
+    font-weight: bold;
+    color: rgb(39, 156, 177);
+}
+
+
+#aboutme div {
+    padding-top: 60px;
+    padding-left: 25px;
+}
+
+.row {
+    font-family: 'Newsreader', serif;
+    text-align: center;
+}
+.title {
+    font-size: 40px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    margin: 10px;
+}
+
+h2 {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+h2:hover {
+    color: gray;
+}
