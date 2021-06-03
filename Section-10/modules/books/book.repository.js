@@ -2,13 +2,25 @@ const mongoose = require('mongoose');
 
 const BookSchema = mongoose.Schema({
   name: String,
-  genre: String,
+  releaseYear: Number,
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Author"
+  },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category"
+  },
 });
 
 const Book = mongoose.model('Book', BookSchema);
 
 const find = function (cb) {
-  Book.find({}).exec(function (err, data) {
+  Book.
+  find({}).
+  populate({path: 'Author', select: 'name'}).
+  populate({path: 'Category', select: 'label'}).
+  exec(function (err, data) {
     cb(data);
   });
 }
@@ -21,7 +33,7 @@ const findById = function (id, cb) {
 
 const create = function (inputs, cb) {
   const newBook = new Book(inputs);
-
+  
   newBook.save(function() {
     cb();
   });
