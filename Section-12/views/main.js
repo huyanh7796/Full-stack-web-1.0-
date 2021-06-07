@@ -1,19 +1,17 @@
 let students = [];
 let limit = 5;
-let page = 0;
-
-let pageCount = function(name) {
-  axios.get(`http://localhost:3000/api/students?fullName=${name}`).then(response => {
-    page = response.total;
-  })
-}
+let page = 1;
+let totalPage = 0;
 
 let fetchStudents = function (name) {
-  pageCount(name);
+  // pageCount(name);
   let url = `http://localhost:3000/api/students?limit=${limit}&offset=${(page - 1) * limit}`;
   if (name) {
     url += `fullName=${name}`;
   }
+  axios.get(url).then(response => {
+    totalPage = Math.ceil(response.total / limit);
+  })
   return axios.get(url).then(response => {
     students = response.data; // Query from database
   });
@@ -33,7 +31,9 @@ function handleDelete(id) {
     if (response.status === 200) {
       let studentIndex = searchById(id);
       students.splice(studentIndex, 1);
-      printStudents(students);
+      fetchStudents().then(function() {
+        printStudents(students);
+      })
     }
   });
 }
@@ -56,8 +56,9 @@ function create (fname, pnum, cname) {
   }).then(response => {
     if (response.status === 200) {
       students.push(response.data);
-
-      printStudents(students);
+      fetchStudents().then(function() {
+        printStudents(students);
+      })
     }
   })
 }
@@ -73,10 +74,18 @@ function update (id, fname, pnum, cname) {
         students[studentIndex].fullName = fname;
         students[studentIndex].phoneNum = pnum;
         students[studentIndex].className = cname;
-
-        printStudents(students);
+        fetchStudents().then(function() {
+          printStudents(students);
+        })
       }
     });
+}
+
+function navButton(page) {
+  page = page;
+  fetchStudents().then(function() {
+    printStudents(students);
+  })
 }
 
 function clearInputs() {
@@ -111,18 +120,18 @@ function printStudents (students, page) {
     `<nav aria-label="Page navigation example">
       <ul class="pagination">
         <li class="page-item">
-          <a class="page-link" href="#" aria-label="Previous">
+          <a class="page-link previous" onclick="navButton('${i}')" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
           </a>
             </li>`);
-    for (let i = 0; i < page; i++) {
+    for (let i = 0; i < totalPage; i++) {
       $("#student-table").append(
-        `<li class="page-item"><a class="page-link" href="#">${i+1}</a></li>`
+        `<li class="page-item"><a class="page-link" onclick="navButton('${i+1})">${i+1}</a></li>`
       )
     }        
     $("#student-table").append(  
             `<li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
+          <a class="page-link next" onclick="navButton('${i+2}')" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>
@@ -148,7 +157,10 @@ function main() {
         } else {
         create(fname, pnum, cname);
         $(".create-noti").append("Create student success!")
-        printStudents(students);
+        fetchStudents()
+        .then(function() {
+          printStudents(students);
+        });
         clearInputs();
         }})
     //Update
@@ -161,7 +173,10 @@ function main() {
         let cname = $(".update-cname").val();
         update(selectedStudent._id,fname,pnum,cname);
         $(".update-noti").append("Update success!");
-        printStudents(students);
+        fetchStudents()
+        .then(function() {
+          printStudents(students);
+        });
         clearInputs();
     })
 }
