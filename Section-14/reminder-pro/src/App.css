@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  display: block;
+  
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  margin: 15px;
+}
+
+.input-container {
+  display: flex;
+
+}
+
+.input-todo {
+  margin: 15px;
+}
+
+.input-date {
+  margin: 15px;
+}
+
+.reminder-button {
+  margin: 15px;
+  
+}
