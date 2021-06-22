@@ -1,23 +1,15 @@
 import React from 'react';
+import Reminder from './components/Reminder';
 import './App.css';
 
 export default class App extends React.Component {
   state = {
     todovalue: '',
-    datevalue: 0,
+    datevalue: new Date(),
   }
-  
-  addReminder(inputtodo, years) {
-      return <div class="reminder-container">
-           <div class="todo-container">
-              <div class="to-do">${inputtodo}</div>
-              <div class="day-count">in ${years} years</div>
-          </div>
-          <div class="closecheck-container">
-              <span class="close" onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'>x</span>
-              <input type="checkbox" class="check-box"></input>
-          </div>
-      </div>
+
+  addReminder() {
+
   }
 
   render() {
@@ -30,10 +22,10 @@ export default class App extends React.Component {
       </div>
       <div>
         {this.state.todovalue}
+        <br></br>
         {this.state.datevalue}
-      </div>
-      <div className="reminder-container">
-
+        <br></br>
+        <Reminder startTime = {this.state.datevalue} />
       </div>
     </div>
   }
