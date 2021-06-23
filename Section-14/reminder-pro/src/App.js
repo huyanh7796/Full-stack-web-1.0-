@@ -1,33 +1,59 @@
 import React from 'react';
-import Reminder from './components/Reminder';
 import './App.css';
+import Item from './components/Item';
+
 
 export default class App extends React.Component {
   state = {
-    todovalue: '',
-    datevalue: new Date(),
+    todoInput: '',
+    dateInput: "2009-01-01",
+    curDate: new Date(),
+    todoList: []
+  }
+  changeTodoInput(event) {
+    this.setState({
+      todoInput: event.target.value
+    });
   }
 
-  addReminder() {
-
+  changeDateInput(event) {
+    this.setState({
+      dateInput: event.target.value
+    });
   }
+
+  // daysBetween (dateInput, curDate) {
+  //   let oneDay = 1000 * 60 * 60 *24;
+  //   console.log(Math.ceil((dateInput - curDate)/oneDay));
+  //   return Math.ceil((dateInput - curDate)/oneDay)
+  // }
+  handleCreate(todoInput, dateInput) {
+    this.setState({
+      todoList: this.state.todoList.concat({
+        todoInput: todoInput,
+        dateInput: dateInput
+      }),
+    });
+  }
+
+  // renderTodoList() {
+  //   this.state.todoList.map(listItem => <Item todoInput={listItem.todoInput} dateInput={listItem.dateInput} key={listItem}/>)
+  // }
 
   render() {
-    return <div className="container">
-      <div class="title">Reminder Pro</div>
-      <div className='input-container'>
-            <input className='input-todo' type="text" placeholder="I have to..." value={this.state.todovalue} onChange={(event) => this.setState({todovalue: event.target.value})}></input>
-            <input className='input-date' type="date" onChange={(event) => this.setState({datevalue: event.target.value})}/>
-            <button className='reminder-button'onClick={this.addReminder(this.state.todovalue,this.state.datevalue)}>Add Remider</button>
+  return (
+    <div className="container">
+      <div className="title">Reminder Pro</div>
+      <div className="main-container">
+        <input id='todo-input' type='text' placeholder='I have to...' value={this.state.todoInput} onChange={(event) => this.changeTodoInput(event)}></input>
+        <input id='date-input' type='date' value={this.state.dateInput} onChange={(event) => this.changeDateInput(event)}></input>
+        <button id='add-reminder' onClick={(event) => this.handleCreate(event, this.state.todoInput, this.state.dateInput)}>Add reminder</button>
       </div>
-      <div>
-        {this.state.todovalue}
-        <br></br>
-        {this.state.datevalue}
-        <br></br>
-        <Reminder startTime = {this.state.datevalue} />
-      </div>
+      {/* {this.state.todoList.map((listItem, index) => <Item todoInput={listItem.todoInput} dateInput={listItem.dateInput} key={index}/>)} */}
+      <Item todoInput={this.state.input} dateInput={this.state.dateInput}/>
     </div>
-  }
+  );
+} 
 }
+
 

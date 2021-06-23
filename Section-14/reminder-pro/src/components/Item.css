@@ -1,0 +1,53 @@
+.reminder-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    height: 80px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    position: relative;
+}
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.to-do {
+    font-weight: bold;
+    margin: 5px;
+}
+.day-count {
+    font-style: italic;
+    font-size: 12px;
+    color: black;
+    margin: 5px;
+}
+
+.check-box {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+
+.close {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+}
+.close:hover {
+    border: 1px solid blue;
+}
+

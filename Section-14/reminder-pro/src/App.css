@@ -1,81 +1,38 @@
 .container {
   display: flex;
   flex-direction: column;
-  position: relative;
   justify-content: center;
   align-items: center;
 }
 
 .title {
-  display: block;
-  
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 20px;
-  margin: 15px;
+  margin-top: 15px;
+  font-size: 30px;
 }
 
-.input-container {
+.main-container {
   display: flex;
-
-}
-
-.input-todo {
-  margin: 15px;
-}
-
-.input-date {
-  margin: 15px;
-}
-
-.reminder-button {
-  margin: 15px;
-  
-}
-
-.reminder-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 400px;
-  height: 80px;
-  border: 1px solid gray;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 5px 0;
-  position: relative;
-}
-
-.to-do {
-  font-weight: bold;
-  margin: 5px;
-}
-.day-count {
-  font-style: italic;
-  font-size: 12px;
-  color: black;
-  margin: 5px;
-}
-
-.check-box {
-  width: 30px;
-  height: 30px;
+  justify-content: center;
   margin: 10px;
 }
 
-.close {
-  position: absolute;
-  right: -10px;
-  top: -10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  border: 1px solid gray;
-  border-radius: 50%;
-  background: white;
-  cursor: pointer;
+#todo-input, #date-input {
+  margin: 20px;
 }
-.close:hover {
-  border: 1px solid blue;
+
+#todo-input:hover, #date-input:hover {
+  border-color: rgb(77, 131, 231);
+}
+
+#add-reminder {
+  margin: 20px;
+  padding: 8px 10px;    
+  background: #2196f3;
+  color: white;
+  border-radius: 6px;
+  border-color: white;
+}
+#add-reminder:hover {
+  cursor: pointer;
+  background-color: rgb(85, 164, 255);
 }
