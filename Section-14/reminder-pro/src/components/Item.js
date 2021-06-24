@@ -7,8 +7,8 @@ export default class Item extends React.Component {
         curDate : new Date()
     }
     
-    handleDelete(event) {
-
+    handleDeleteChild = () => {
+        this.props.handleDelete(this.props.id);
     }
 
     daysBetween = (dateInput) => {
@@ -26,7 +26,7 @@ export default class Item extends React.Component {
                 <div className="day-count">{this.daysBetween(this.props.dateInput)}</div>
             </div>
             <div className="closecheck-container">
-                <span className="close" onClick={(event) => this.handleDelete(event)}>x</span>
+                <span className="close" onClick={this.handleDeleteChild}>x</span>
                 <input className="check-box" type="checkbox"></input>
             </div>
         </div>
