@@ -1,12 +1,27 @@
 import React from 'react';
+import moment from 'moment';
 import './Item.css';
 
 export default class Item extends React.Component {
+    state = {
+        curDate : new Date()
+    }
+    
+    daysBetween = (dateInput) => {
+        if (moment(dateInput).diff(moment(this.state.curDate), 'second') > 0) {
+            return moment(dateInput).fromNow()
+        } else {
+            return 'Times up'
+        }
+    }
+    
+    
+    
     render() {
         return <div className="reminder-container">
             <div className="todo-container">
                 <div className="to-do">{this.props.todoInput}</div>
-                <div className="day-count">{this.props.dateInput}</div>
+                <div className="day-count">{this.daysBetween(this.props.dateInput)}</div>
             </div>
             <div className="closecheck-container">
                 <span className="close">x</span>

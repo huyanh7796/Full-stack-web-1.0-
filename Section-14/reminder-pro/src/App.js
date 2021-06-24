@@ -6,7 +6,7 @@ import Item from './components/Item';
 export default class App extends React.Component {
   state = {
     todoInput: '',
-    dateInput: "2009-01-01",
+    dateInput: "1996-07-07",
     curDate: new Date(),
     todoList: []
   }
@@ -33,6 +33,7 @@ export default class App extends React.Component {
         todoInput: todoInput,
         dateInput: dateInput
       }),
+        todoInput: '',
     });
   }
 
@@ -47,10 +48,9 @@ export default class App extends React.Component {
       <div className="main-container">
         <input id='todo-input' type='text' placeholder='I have to...' value={this.state.todoInput} onChange={(event) => this.changeTodoInput(event)}></input>
         <input id='date-input' type='date' value={this.state.dateInput} onChange={(event) => this.changeDateInput(event)}></input>
-        <button id='add-reminder' onClick={(event) => this.handleCreate(event, this.state.todoInput, this.state.dateInput)}>Add reminder</button>
+        <button id='add-reminder' onClick={this.handleCreate.bind(this,this.state.todoInput, this.state.dateInput)}>Add reminder</button>
       </div>
-      {/* {this.state.todoList.map((listItem, index) => <Item todoInput={listItem.todoInput} dateInput={listItem.dateInput} key={index}/>)} */}
-      <Item todoInput={this.state.input} dateInput={this.state.dateInput}/>
+      {this.state.todoList.map((listItem, index) => <Item todoInput={listItem.todoInput} dateInput={listItem.dateInput} key={index}/>)}
     </div>
   );
 } 
