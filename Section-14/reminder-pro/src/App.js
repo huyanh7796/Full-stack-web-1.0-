@@ -6,7 +6,7 @@ import Item from './components/Item';
 
 export default class App extends React.Component {
   state = {
-    id: 0,
+    id: '',
     todoInput: '',
     dateInput: '',
     curDate: new Date(),
@@ -46,7 +46,7 @@ export default class App extends React.Component {
 
   handleDelete = (id) => {
     this.setState({
-      todoList: this.state.todoList.filter(element => element.id !== id)
+      todoList: this.state.todoList.filter(item => item.id !== id)
     })
   }
   
