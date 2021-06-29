@@ -6,7 +6,7 @@ const find = function (cb) {
 
 const create = function (inputs, cb) {
   // Data validation
-
+  // inputs.id, inputs.name, in
   // Persist data
   repository.create(inputs, cb);
 }

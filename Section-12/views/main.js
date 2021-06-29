@@ -88,6 +88,32 @@ function navButton(page) {
   })
 }
 
+function printPagination(page) {
+  //print pagination
+  $("#student-table").append(
+    `<nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link previous" onclick="navButton('${i}')" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+            </li>`);
+    for (let i = 0; i < totalPage; i++) {
+      $("#student-table").append(
+        `<li class="page-item"><a class="page-link" onclick="navButton('${i+1})">${i+1}</a></li>`
+      )
+    }        
+    $("#student-table").append(  
+            `<li class="page-item">
+          <a class="page-link next" onclick="navButton('${i+2}')" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>`
+    )
+}
+
 function clearInputs() {
     $("input").val("");
 }
@@ -115,30 +141,9 @@ function printStudents (students, page) {
             </tr>`
         )
     }
-    //print pagination
-    $("#student-table").append(
-    `<nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link previous" onclick="navButton('${i}')" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-            </li>`);
-    for (let i = 0; i < totalPage; i++) {
-      $("#student-table").append(
-        `<li class="page-item"><a class="page-link" onclick="navButton('${i+1})">${i+1}</a></li>`
-      )
-    }        
-    $("#student-table").append(  
-            `<li class="page-item">
-          <a class="page-link next" onclick="navButton('${i+2}')" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      </ul>
-    </nav>`
-    )
+    printPagination(page);
 }
+
 function main() {
     fetchStudents()
     .then(function() {
