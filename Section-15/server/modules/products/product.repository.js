@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 const ProductSchema = mongoose.Schema({
   title: String,
   description: String,
-  thumbnail: String
+  thumbnail: String,
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Category'
+  }
 }, {
   timestamps: true
 });

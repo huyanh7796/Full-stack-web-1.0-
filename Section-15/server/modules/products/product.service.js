@@ -20,7 +20,7 @@ const find = function (query) {
   delete query.offset;
 
   // Transform query - Data validation
-  const supportedQueryFields = ['title', 'description'];
+  const supportedQueryFields = ['title', 'description', 'category'];
 
   Object.keys(query).forEach(function (key) {
     if (!supportedQueryFields.includes(key)) {

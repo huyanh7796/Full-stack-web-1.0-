@@ -1,37 +1,31 @@
 import React from 'react';
-import Home from './components/Home';
-import Menu from './components/Menu';
-import Cake from './components/Cake';
-import Bread from './components/Bread';
-import Beverages from './components/Beverages';
-import Story from './components/Story';
-import Events from './components/Events';
-import {Switch, Route} from 'react-router-dom';
-import { get } from '../../services/http';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import HomePage from '../HomePage/HomePage';
+import Product from '../Product/Product';
+import Cart from '../Cart/Cart'
 
 export default class App extends React.Component {
-  state = {
-    products: []
-  }
-
-  async componentDidMount() {
-    const productResponse = await get('/products?limit=6');
-    this.setState({
-      products: productResponse.data
-    });
-  }
-
   render () {
-    return <main>
+    return <BrowserRouter>
+      <Header />
+
+      <main className="home-page-content">
         <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/menu" component={Menu} />
-          <Route path="/cake" component={Cake} />
-          <Route path="/bread&pastry" component={Bread} />
-          <Route path="/beverages" component={Beverages} />
-          <Route path="/ourstory" component={Story} />
-          <Route path="/news&events" component={Events} />
+          <Route exact path='/'>
+            <HomePage />
+          </Route>
+          <Route path='/products'>
+            <Product />
+          </Route>
+          <Route path='/cart'>
+            <Cart />
+          </Route>
         </Switch>
       </main>
+      
+      <Footer />
+    </BrowserRouter>
   }
 }
