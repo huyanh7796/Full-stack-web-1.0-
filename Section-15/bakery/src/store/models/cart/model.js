@@ -17,9 +17,15 @@ export const cart = {
           if (product._id === payload._id) {
             return payload;
           }
-
           return product;
         })
+      }
+    },
+
+    removeProduct(state, payload) {
+      return {
+        ...state,
+        products: state.products.filter(product => product !== payload)
       }
     }
   },
