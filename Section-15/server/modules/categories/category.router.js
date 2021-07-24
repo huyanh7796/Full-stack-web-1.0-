@@ -4,7 +4,7 @@ const service = require('./category.service');
 
 router.get('/', async function(req, res) {
   try {
-    const data = await service.find(req.query);
+    const data = await service.find(req.query, req.user);
     res.json(data);
   } catch (error) {
     res.status(500).json({
